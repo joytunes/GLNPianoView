@@ -15,7 +15,7 @@ import UIKit
 
 @IBDesignable public class GLNPianoView: UIView {
     
-    @IBInspectable var showNotes: Bool = true
+    @IBInspectable public var showNotes: Bool = true
     @objc public weak var delegate: GLNPianoViewDelegate?
     private var keysArray: [GLNPianoKey?] = []
     private var currentTouches = NSMutableSet(capacity: Int(maxNumberOfKeys))
@@ -225,7 +225,7 @@ import UIKit
         highlight(noteNumber: noteNumber, color: color, play: play, resets: resets)
     }
 
-    private func highlight(noteNumber: Int, color: UIColor, play: Bool, resets: Bool = true) {
+    public func highlight(noteNumber: Int, color: UIColor, play: Bool, resets: Bool = true) {
         for key in keysArray {
             if let key = key, key.noteNumber == noteNumber  {
                 key.highlightLayer.backgroundColor = color.cgColor
